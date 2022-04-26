@@ -52,7 +52,9 @@ export function thenCatchGetQuotes() {
 export async function asyncFinallyGetQuotes() {
   try {
     const res = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1');
+    console.log('#5 res!!!', res);
     const quotes = await res.json();
+    console.log('#5 quotes!!!!', quotes);
     return quotes[0];
   } catch (error) {
     console.error(error);
@@ -75,7 +77,20 @@ export function thenFinallyGetQuotes() {
 /**
  * TODO: Exercise 7: Call your function from exercise 5 using .then
  */
-
+export function thenAsyncGetQuotes() {
+  return asyncFinallyGetQuotes().then((res) =>
+    console.log('completed  with results:', res)
+  );
+}
 /**
  * TODO: Exercise 8: Call your function from exercise 6 using async/await
  */
+export async function asyncThenGetQuotes() {
+  const res = await fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
+    .then((res) => res.json())
+    .then((result) => ({ quote: result[0].quote }))
+    .catch((error) => console.error(error))
+    .finally(() => console.log('All done!'));
+
+  return res;
+}
