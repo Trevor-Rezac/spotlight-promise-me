@@ -1,3 +1,10 @@
+import { asyncGetQuotes } from './services/promise-me'
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+  <>
+  <button onClick={async () => console.log('api quotes!!!!', await asyncGetQuotes())}>Async getQuotes</button>
+  </>
+
+  )
 }
