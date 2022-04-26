@@ -1,8 +1,9 @@
 import { 
   asyncGetQuotes,
   thenGetQuotes,
-  asyncTryCatchGetQuotes, 
-  thenCatchGetQuotes
+  asyncTryCatchGetQuotes,
+  thenCatchGetQuotes,
+  asyncFinallyGetQuotes
 } from './services/promise-me'
 
 export default function App() {
@@ -15,6 +16,8 @@ export default function App() {
   <button onClick={async () => console.log('asyncTryCatchGetQuotes!!!!', await asyncTryCatchGetQuotes())}>asyncTryCatchGetQuotes</button>
 
   <button onClick={async () => console.log('thenCatchGetQuotes!!!!', await thenCatchGetQuotes())}>thenCatchGetQuotes</button>
+
+  <button onClick={async () => console.log('asyncFinallyGetQuotes!!!!', await asyncFinallyGetQuotes())}>asyncFinallyGetQuotes</button>
   </>
   )
 }
