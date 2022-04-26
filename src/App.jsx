@@ -3,7 +3,8 @@ import {
   thenGetQuotes,
   asyncTryCatchGetQuotes,
   thenCatchGetQuotes,
-  asyncFinallyGetQuotes
+  asyncFinallyGetQuotes,
+  thenFinallyGetQuotes
 } from './services/promise-me'
 
 export default function App() {
@@ -18,6 +19,8 @@ export default function App() {
   <button onClick={async () => console.log('thenCatchGetQuotes!!!!', await thenCatchGetQuotes())}>thenCatchGetQuotes</button>
 
   <button onClick={async () => console.log('asyncFinallyGetQuotes!!!!', await asyncFinallyGetQuotes())}>asyncFinallyGetQuotes</button>
+
+  <button onClick={async () => console.log('thenFinallyGetQuotes!!!!', await thenFinallyGetQuotes())}>thenFinallyGetQuotes</button>
   </>
   )
 }

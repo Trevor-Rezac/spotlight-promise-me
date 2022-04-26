@@ -57,13 +57,21 @@ export async function asyncFinallyGetQuotes() {
   } catch (error) {
     console.error(error);
   } finally {
-    console.log('Finally complete!');
+    console.log('All done!');
   }
 }
 /**
  * TODO: Exercise 6: use `fetch`, `.then`, `.catch`. and `.finally` to get the same data from exercise 5 while handling errors and calling console.log('All done!') upon completion
  */
+export function thenFinallyGetQuotes() {
+  const res = fetch('https://futuramaapi.herokuapp.com/api/quotes/1')
+    .then((res) => res.json())
+    .then((result) => ({ quote: result[0].quote }))
+    .catch((error) => console.error(error))
+    .finally(() => console.log('All done!'));
 
+  return res;
+}
 /**
  * TODO: Exercise 7: Call your function from exercise 5 using .then
  */
